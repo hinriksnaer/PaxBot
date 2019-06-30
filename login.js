@@ -1,7 +1,7 @@
 
 function init() {
     chrome.tabs.create({
-        url: 'https://paxful.com/buy-bitcoin/amazon-gift-card#content'
+        url: 'https://paxful.com/buy-bitcoin/amazon-gift-card'
     }, saleTabOpened);
 
 }
@@ -20,12 +20,9 @@ function pageLoaded() {
 }
 
 function listener(tabId, changeInfo, tab) {
-    console.log('listener on');
-    console.log(tabId);
-    console.log(changeInfo)
     // make sure the status is 'complete' and it's the right tab
     if (changeInfo.status == 'complete') {
-        chrome.tabs.executeScript({code: pageLoaded});
+        //chrome.tabs.executeScript({code: pageLoaded});
     }
 }
 

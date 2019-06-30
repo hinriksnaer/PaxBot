@@ -1,16 +1,30 @@
 {
   "manifest_version": 2,
-
   "name": "Paxful Bot",
   "description": "Trading bot for paxful",
   "version": "1.0.0",
-  "icons": { "128": "bot.png" },
+  "icons": {
+    "128": "bot.png"
+  },
   "browser_action": {
     "default_icon": "bot.png",
     "default_popup": "popup.html"
   },
   "background": {
     "page": "popup.html"
- },
-  "permissions": ["activeTab"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://paxful.com/buy-bitcoin/amazon-gift-card"],
+      "js": ["contentScript.js"]
+    },
+    {
+      "matches": ["https://paxful.com/offer/*"],
+      "js": ["offerSite.js"]
+    }
+
+  ],
+  "permissions": [
+    "activeTab"
+  ]
 }
